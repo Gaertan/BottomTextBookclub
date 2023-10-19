@@ -5,14 +5,19 @@
     <string name="recordar_literal">Remember</string>
     <string name="registrar_literal">Register</string>
     <string name="login_literal">Login</string>
-    <string name="programacion_literal">Programacion multimedia y dispositivos moviles</string>
-    <string name="terror">terror</string>
-    <string name="accion">acción</string>
-    <string name="comedia">comedia</string>
-    <string name="comerciales">comercial</string>
+
+    <string name="terror">horror</string>
+    <string name="accion">action</string>
+    <string name="comedia">comedy</string>
+    <string name="comerciales">commercial</string>
     <string name="detective">detectives</string>
     <string name="drama">drama</string>
+
+
+
+
     <string name="title_activity_login">LoginActivity</string>
+    <string name="programacion_literal">Multimedia programming and mobile devices</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
     <string name="action_sign_in">Sign in or register</string>

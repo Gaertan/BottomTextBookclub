@@ -1,10 +1,10 @@
 package com.example.bottomtextbookclub.data.model;
 
-public class Usuario {
+public class UsuarioDEPRECATED {
     private String nombre;
     private String password;
 
-    public Usuario(String nombre, String password) {
+    public UsuarioDEPRECATED(String nombre, String password) {
         this.nombre = nombre;
         this.password = password;
     }
@@ -34,7 +34,7 @@ public class Usuario {
     public boolean equals(Object obj) {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
-        Usuario usuario = (Usuario) obj;
+        UsuarioDEPRECATED usuario = (UsuarioDEPRECATED) obj;
         return nombre.equals(usuario.nombre) &&
                 password.equals(usuario.password);
     }

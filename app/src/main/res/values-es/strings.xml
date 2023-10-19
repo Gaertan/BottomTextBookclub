@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">BottomTextBookclub</string>
-    <string name="usuario_literal">User</string>
+    <string name="usuario_literal">Usuario</string>
     <string name="password_literal">Password</string>
-    <string name="recordar_literal">Remember</string>
-    <string name="registrar_literal">Register</string>
+    <string name="recordar_literal">Recordar</string>
+    <string name="registrar_literal">Registrar</string>
     <string name="login_literal">Login</string>
     <string name="programacion_literal">Programacion multimedia y dispositivos moviles</string>
     <string name="terror">terror</string>
