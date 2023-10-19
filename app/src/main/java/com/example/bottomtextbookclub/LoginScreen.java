@@ -32,7 +32,7 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
             CheckBox checkBoxRecordar = findViewById(R.id.checkBoxRecordar);
             EditText editTextUsuario = findViewById(R.id.loginUsuario);
             EditText editTextPassword = findViewById(R.id.loginPassword);
-
+            Spinner spinner = findViewById(R.id.spinnerCategoria);
             setContentView(R.layout.layoutlogin);
 
 
