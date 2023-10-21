@@ -5,6 +5,7 @@
     <string name="recordar_literal">Remember</string>
     <string name="registrar_literal">Register</string>
     <string name="login_literal">Login</string>
+    <string name="categoria">category</string>
 
     <string name="terror">horror</string>
     <string name="accion">action</string>
@@ -27,6 +28,11 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="title_activity_main2">MainActivity2</string>
+
+    <string name="menu_ayuda">"Help"</string>
+    <string name="menu_acerca_de">"About"</string>
+    <string name="menu_historial">"Record/recent watched"</string>
+
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>

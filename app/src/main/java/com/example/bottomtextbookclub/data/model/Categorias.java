@@ -14,6 +14,7 @@ public enum Categorias {
         this.nombre = nombre;
     }
 
+    public String getNombre(){return this.name().toString().toLowerCase();}
     @Override
     public String toString() {
         return nombre;

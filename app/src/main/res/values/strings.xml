@@ -6,6 +6,8 @@
     <string name="registrar_literal">Register</string>
     <string name="login_literal">Login</string>
     <string name="programacion_literal">Programacion multimedia y dispositivos moviles</string>
+    <string name="categoria">categoria</string>
+
     <string name="terror">terror</string>
     <string name="accion">acción</string>
     <string name="comedia">comedia</string>
@@ -22,11 +24,16 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="title_activity_main2">MainActivity2</string>
+    <string name="menu_ayuda">"Help"</string>
+    <string name="menu_acerca_de">"About"</string>
+    <string name="menu_historial">"Record/recent watched"</string>
+
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
+
 
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris

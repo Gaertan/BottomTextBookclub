@@ -17,6 +17,8 @@ import android.widget.Toast;
 
 import com.example.bottomtextbookclub.data.model.Categorias;
 import com.example.bottomtextbookclub.data.model.UsuarioAccount;
+import com.example.bottomtextbookclub.ui.main.MainViewModel;
+import com.example.bottomtextbookclub.ui.placeholder.NavegacionPrincipal;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -89,7 +91,7 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
                     borrarCredenciales();
                 }
                 // Intent intent = new Intent(this, pantallaPrincipal.class);
-                Intent intent = new Intent(this, MainActivity.class);
+                Intent intent = new Intent(this, NavegacionPrincipal.class);
                 startActivity(intent);
 
 
