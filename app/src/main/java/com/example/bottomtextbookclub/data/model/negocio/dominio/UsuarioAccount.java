@@ -1,4 +1,4 @@
-package com.example.bottomtextbookclub.data.model;
+package com.example.bottomtextbookclub.data.model.negocio.dominio;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;

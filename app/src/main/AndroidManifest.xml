@@ -19,7 +19,7 @@
         android:theme="@style/Theme.BottomTextBookclub"
         tools:targetApi="34">
         <activity
-            android:name=".ui.placeholder.NavegacionPrincipal"
+            android:name=".ui.main.NavegacionPrincipal"
             android:exported="false" />
 
         <service

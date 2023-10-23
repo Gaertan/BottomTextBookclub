@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">BottomTextBookclub</string>
+
+    <string name="autor">Andrés García Pérez - "Gaertan"</string>
+    <string name="ciclo">PMDM DAM SP 2023/24"</string>
+
     <string name="usuario_literal">User</string>
     <string name="password_literal">Password</string>
     <string name="recordar_literal">Remember</string>
@@ -32,6 +36,7 @@
     <string name="menu_ayuda">"Help"</string>
     <string name="menu_acerca_de">"About"</string>
     <string name="menu_historial">"Record/recent watched"</string>
+    <string name="comprar">"buy"</string>
 
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>

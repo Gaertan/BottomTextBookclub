@@ -15,10 +15,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.bottomtextbookclub.data.model.Categorias;
-import com.example.bottomtextbookclub.data.model.UsuarioAccount;
-import com.example.bottomtextbookclub.ui.main.MainViewModel;
-import com.example.bottomtextbookclub.ui.placeholder.NavegacionPrincipal;
+import com.example.bottomtextbookclub.data.model.negocio.dominio.Categorias;
+import com.example.bottomtextbookclub.data.model.negocio.dominio.UsuarioAccount;
+import com.example.bottomtextbookclub.ui.main.NavegacionPrincipal;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -92,6 +91,7 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
                 }
                 // Intent intent = new Intent(this, pantallaPrincipal.class);
                 Intent intent = new Intent(this, NavegacionPrincipal.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
 
 

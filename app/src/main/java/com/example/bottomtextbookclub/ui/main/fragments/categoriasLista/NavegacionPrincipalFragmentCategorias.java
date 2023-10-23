@@ -1,6 +1,4 @@
-package com.example.bottomtextbookclub.ui.main;
-
-import androidx.lifecycle.ViewModelProvider;
+package com.example.bottomtextbookclub.ui.main.fragments.categoriasLista;
 
 import android.os.Bundle;
 
@@ -16,14 +14,15 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.bottomtextbookclub.R;
-import com.example.bottomtextbookclub.data.model.Categorias;
+import com.example.bottomtextbookclub.data.model.negocio.dominio.Categorias;
+import com.example.bottomtextbookclub.ui.main.NavegacionPrincipal;
+import com.example.bottomtextbookclub.ui.main.fragments.librosLista.LibroFragment;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 
-public class NavegacionPrincipalFragmentCategorias extends Fragment {
+public class NavegacionPrincipalFragmentCategorias extends Fragment implements CategoriasAdapter.OnCategoriaClickListener  {
 
     // Otras variables miembro
 
@@ -46,11 +45,25 @@ public class NavegacionPrincipalFragmentCategorias extends Fragment {
         recyclerView.addItemDecoration(itemDecoration);
 
         ArrayList<Categorias> categoriasList = new ArrayList<>(Arrays.asList(Categorias.values()));
-        CategoriasAdapter adapter = new CategoriasAdapter(categoriasList);
+        CategoriasAdapter adapter = new CategoriasAdapter(categoriasList,this);
+
         recyclerView.setAdapter(adapter);
 
         // Resto del código
 
         return view;
     }
+
+    @Override
+    public void onCategoriaClick(Categorias categoria) {
+        if (getActivity() != null) {
+            ((NavegacionPrincipal) getActivity()).onCategoriaClick(categoria);
+        }
+
+    }
+    //interfaz de comunicacion con fragmento
+
+
+
+
 }

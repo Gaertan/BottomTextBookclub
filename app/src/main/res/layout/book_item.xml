@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/constraintLayoutLibroDetails"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/linearLayoutVerticalLibroCard"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center|center_horizontal|center_vertical"
+        android:foregroundGravity="center_vertical|center|center_horizontal"
+        android:gravity="center|center_horizontal|center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textViewTituloLibroCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|center_horizontal|center_vertical"
+            android:layout_margin="@dimen/text_margin"
+            android:foregroundGravity="center_vertical|center|center_horizontal"
+            android:text="placeholder"
+            android:textAppearance="?attr/textAppearanceListItem" />
+
+        <ImageView
+            android:id="@+id/imageViewLibroCard"
+            android:layout_width="match_parent"
+            android:layout_height="175dp"
+            android:layout_gravity="center|center_horizontal|center_vertical"
+            android:layout_weight="1"
+            android:foregroundGravity="center_vertical|center|center_horizontal"
+            app:srcCompat="@drawable/i9788493806125" />
+
+        <TextView
+            android:id="@+id/textViewIsbnLibroCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|center_horizontal|center_vertical"
+            android:layout_margin="@dimen/text_margin"
+            android:foregroundGravity="center_vertical|center|center_horizontal"
+            android:text="placeholder"
+            android:textAppearance="?attr/textAppearanceListItem" />
+
+        <TextView
+            android:id="@+id/textViewDescripcionLibroCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|center_vertical"
+            android:gravity="center|center_horizontal|center_vertical"
+            android:text="placeholder" />
+    </LinearLayout>
+
+</LinearLayout>

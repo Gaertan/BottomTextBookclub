@@ -1,6 +1,8 @@
-package com.example.bottomtextbookclub.data.model;
+package com.example.bottomtextbookclub.data.model.negocio.dominio;
 
-public enum Categorias {
+import java.io.Serializable;
+
+public enum Categorias implements Serializable {
     TERROR("@string/terror"),
     ACCION("@string/accion"),
     COMEDIA("@string/comedia"),

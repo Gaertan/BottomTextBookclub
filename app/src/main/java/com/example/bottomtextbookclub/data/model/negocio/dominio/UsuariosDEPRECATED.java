@@ -1,4 +1,4 @@
-package com.example.bottomtextbookclub.data.model;
+package com.example.bottomtextbookclub.data.model.negocio.dominio;
 
 import java.util.ArrayList;
 import java.util.List;

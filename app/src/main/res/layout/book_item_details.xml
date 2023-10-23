@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayoutLibroDetails"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/scrollView4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/linearLayoutDetailsLibro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center|center_horizontal|center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textViewTituloLibroDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:foregroundGravity="center_vertical|center|center_horizontal"
+                android:text="placeholder"
+                android:textAppearance="?attr/textAppearanceListItem" />
+
+            <ImageView
+                android:id="@+id/imageViewLibroDetails"
+                android:layout_width="224dp"
+                android:layout_height="372dp"
+                android:foregroundGravity="center_vertical|center|center_horizontal"
+                tools:srcCompat="@drawable/i9788493806125" />
+
+            <TextView
+                android:id="@+id/textViewIsbnLibroDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:foregroundGravity="center_vertical|center|center_horizontal"
+                android:text="placeholder"
+                android:textAppearance="?attr/textAppearanceListItem" />
+
+            <TextView
+                android:id="@+id/textViewDescripcionLibroDetails"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="56dp"
+                android:gravity="center|center_horizontal|center_vertical"
+                android:text="placeholder" />
+
+            <Button
+                android:id="@+id/ButtonComprarLibroDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="@string/comprar" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

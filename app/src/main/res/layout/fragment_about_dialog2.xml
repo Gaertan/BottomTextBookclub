@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:id="@+id/aboutDialog2"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:layout_gravity="center|center_horizontal|center_vertical"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/TextViewAboutNombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextViewAboutNombre" />
+
+    <TextView
+        android:id="@+id/TextViewAboutNombreCiclo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextViewAboutNombreCiclo" />
+
+    <Button
+        android:id="@+id/buttonDialogVolver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton
+        android:id="@+id/imageButtonAbout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>
+
+
+
