@@ -38,9 +38,11 @@
 
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
+    <string name="next">Continuar</string>
     <string name="previous">Volver</string>
-
+    <string name="confirmQuestion">¿Desea Continuar?</string>
+    <string name="confirm">Confirmar</string>
+    <string name="cancel">Cancelar</string>
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
         volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus

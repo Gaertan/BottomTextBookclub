@@ -1,4 +1,4 @@
-package com.example.bottomtextbookclub.ui.main.fragments.dialogAboutFragment;
+package com.example.bottomtextbookclub.ui.main.fragments.dialogFragmentAbout;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -15,7 +15,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
 import com.example.bottomtextbookclub.R;
-import com.example.bottomtextbookclub.ui.main.NavegacionPrincipal;
 
 public class DialogAbout extends DialogFragment {
 

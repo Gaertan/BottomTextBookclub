@@ -1,4 +1,4 @@
-package com.example.bottomtextbookclub.ui.main.fragments.categoriasLista;
+package com.example.bottomtextbookclub.ui.main.fragments.fragmentListaCategorias;
 
 import android.os.Bundle;
 
@@ -16,7 +16,6 @@ import android.view.ViewGroup;
 import com.example.bottomtextbookclub.R;
 import com.example.bottomtextbookclub.data.model.negocio.dominio.Categorias;
 import com.example.bottomtextbookclub.ui.main.NavegacionPrincipal;
-import com.example.bottomtextbookclub.ui.main.fragments.librosLista.LibroFragment;
 
 import java.util.ArrayList;
 import java.util.Arrays;

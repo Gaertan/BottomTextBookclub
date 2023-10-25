@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:id="@+id/edit_name"
+
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+
+    android:layout_gravity="center"
+    android:gravity="center|center_horizontal"
+    android:orientation="vertical">
+
+
+    <TextView
+
+        android:id="@+id/textViewDialogConfirmarPrincipal"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:text="Your name" />
+
+    <TextView
+        android:id="@+id/textViewDialogConfirmarPregunta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center|center_horizontal"
+        android:text="TextView" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center|center_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/buttonFragmentDialogConfirmarOkay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button" />
+
+        <Button
+            android:id="@+id/buttonFragmentDialogConfirmarNo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button" />
+    </LinearLayout>
+
+
+</LinearLayout>

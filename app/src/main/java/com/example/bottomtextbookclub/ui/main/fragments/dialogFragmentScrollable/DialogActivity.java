@@ -1,4 +1,4 @@
-package com.example.bottomtextbookclub.ui.main.fragments.dialogAboutFragment;
+package com.example.bottomtextbookclub.ui.main.fragments.dialogFragmentScrollable;
 
 import android.os.Bundle;
 
@@ -7,10 +7,10 @@ import androidx.fragment.app.FragmentManager;
 
 import com.example.bottomtextbookclub.R;
 
-public class DialogActivityAbout extends FragmentActivity {
+public class DialogActivity extends FragmentActivity {
     @Override
-    public void onCreate(Bundle savedInstanceState) {
 
+    public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navegacion_principal);
@@ -18,13 +18,14 @@ public class DialogActivityAbout extends FragmentActivity {
 
     }
 
+
+
     private void showEditDialog() {
         FragmentManager fm = getSupportFragmentManager();
-        DialogAbout dialogAbout = DialogAbout.newInstance("about");
-        dialogAbout.show(fm, "fragment_about_dialog");
+        DialogScrollable editNameDialogFragment = DialogScrollable.newInstance("about");
+        editNameDialogFragment.show(fm, "fragment_scroll_dialog");
 
     }
-
 
 
 }

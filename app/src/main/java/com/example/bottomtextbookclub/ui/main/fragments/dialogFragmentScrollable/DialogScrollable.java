@@ -1,5 +1,4 @@
-package com.example.bottomtextbookclub.ui.main.fragments.dialogScrollableFragment;
-import android.content.Intent;
+package com.example.bottomtextbookclub.ui.main.fragments.dialogFragmentScrollable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,10 +9,8 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.example.bottomtextbookclub.R;
-import com.example.bottomtextbookclub.ui.main.NavegacionPrincipal;
 
 public class DialogScrollable extends DialogFragment {
 

@@ -1,4 +1,4 @@
-package com.example.bottomtextbookclub.ui.main.fragments.librosLista;
+package com.example.bottomtextbookclub.ui.main.fragments.fragmentListaLibros;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -16,9 +16,8 @@ import android.view.ViewGroup;
 import com.example.bottomtextbookclub.R;
 import com.example.bottomtextbookclub.data.model.negocio.dominio.Libro;
 import com.example.bottomtextbookclub.ui.main.NavegacionPrincipal;
-import com.example.bottomtextbookclub.ui.main.fragments.detailsLibro.DetailsLibroFragment;
+import com.example.bottomtextbookclub.ui.main.fragments.fragmentDetailsLibro.DetailsLibroFragment;
 
-import java.sql.Connection;
 import java.util.ArrayList;
 
 /**

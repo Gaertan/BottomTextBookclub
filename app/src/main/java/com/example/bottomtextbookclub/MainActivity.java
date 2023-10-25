@@ -10,6 +10,9 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.bottomtextbookclub.login.LoginScreen;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -17,8 +20,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Animation animSplash;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+
+        try {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_main);
+        } catch (Exception e) {
+            Toast.makeText(this,
+                    "Hubo una excepcion en main", Toast.LENGTH_LONG).show();
+           System.out.println(e);
+        }
+
 
         //creo la carpeta "anim" donde voy a definir que va a hacer cada animación
         animSplash = AnimationUtils.loadAnimation(this, R.anim.anim_splash);

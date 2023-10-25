@@ -1,4 +1,4 @@
-package com.example.bottomtextbookclub.ui.main.fragments.detailsLibro;
+package com.example.bottomtextbookclub.ui.main.fragments.fragmentDetailsLibro;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -59,6 +59,7 @@ public class DetailsLibroFragment extends Fragment {
         imageViewLibro.setImageResource(libro.getIdDeImagen(requireContext()));
         textViewIsbn.setText(libro.getIsbn());
         textViewDescripcion.setText(libro.getDescripcion());
+        buttonComprar.setText(R.string.comprar);
 
         buttonComprar.setOnClickListener(new View.OnClickListener() {
             @Override

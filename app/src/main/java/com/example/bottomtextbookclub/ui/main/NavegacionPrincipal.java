@@ -5,6 +5,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,17 +17,18 @@ import com.example.bottomtextbookclub.R;
 import com.example.bottomtextbookclub.data.model.negocio.Libros;
 import com.example.bottomtextbookclub.data.model.negocio.dominio.Categorias;
 import com.example.bottomtextbookclub.data.model.negocio.dominio.Libro;
-import com.example.bottomtextbookclub.ui.main.fragments.categoriasLista.CategoriasAdapter;
-import com.example.bottomtextbookclub.ui.main.fragments.categoriasLista.NavegacionPrincipalFragmentCategorias;
-import com.example.bottomtextbookclub.ui.main.fragments.detailsLibro.DetailsLibroFragment;
-import com.example.bottomtextbookclub.ui.main.fragments.dialogAboutFragment.DialogAbout;
-import com.example.bottomtextbookclub.ui.main.fragments.dialogScrollableFragment.DialogScrollable;
-import com.example.bottomtextbookclub.ui.main.fragments.librosLista.LibroFragment;
-import com.example.bottomtextbookclub.ui.main.fragments.librosLista.LibroRecyclerViewAdapter;
+import com.example.bottomtextbookclub.login.LoginScreen;
+import com.example.bottomtextbookclub.ui.main.fragments.dialogFragmentConfirmar.DialogFragmentConfrirmar;
+import com.example.bottomtextbookclub.ui.main.fragments.fragmentListaCategorias.CategoriasAdapter;
+import com.example.bottomtextbookclub.ui.main.fragments.fragmentListaCategorias.NavegacionPrincipalFragmentCategorias;
+import com.example.bottomtextbookclub.ui.main.fragments.fragmentDetailsLibro.DetailsLibroFragment;
+import com.example.bottomtextbookclub.ui.main.fragments.dialogFragmentAbout.DialogAbout;
+import com.example.bottomtextbookclub.ui.main.fragments.dialogFragmentScrollable.DialogScrollable;
+import com.example.bottomtextbookclub.ui.main.fragments.fragmentListaLibros.LibroFragment;
 
 import java.util.ArrayList;
 
-public class NavegacionPrincipal extends AppCompatActivity implements CategoriasAdapter.OnCategoriaClickListener, LibroFragment.OnLibroClickListener {
+public class NavegacionPrincipal extends AppCompatActivity implements CategoriasAdapter.OnCategoriaClickListener, LibroFragment.OnLibroClickListener, DialogFragmentConfrirmar.ConfirmacionDialogListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,11 +53,36 @@ public class NavegacionPrincipal extends AppCompatActivity implements Categorias
         buttonVolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Llama al método para cambiar el fragmento;
-                // Esto vuelve al fragmento anterior en el stack
-                getSupportFragmentManager().popBackStack();
+                onBackPressed();
             }});
 
+    }
+
+    @Override
+    public void onResultDialogConfirmacion(boolean result, String texto) {
+        if (result && getString(R.string.previous).equals(texto)) {
+            volverOcerrar();
+        }
+
+        }
+    @Override
+    public void onBackPressed() {
+        showConfirmationDialog();
+    }
+    private void volverOcerrar(){
+        if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
+        Intent intent = new Intent(this, LoginScreen.class);
+        startActivity(intent);
+        finish();
+    } else {
+        getSupportFragmentManager().popBackStack();
+
+    }}
+
+
+    protected void showConfirmationDialog(){
+        DialogFragmentConfrirmar.newInstance(getString(R.string.previous))
+                .show(getSupportFragmentManager(), "confirmacionDialog");
     }
 
     @Override

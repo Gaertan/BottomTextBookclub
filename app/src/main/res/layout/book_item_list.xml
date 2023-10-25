@@ -9,5 +9,5 @@
     android:layout_marginLeft="16dp"
     android:layout_marginRight="16dp"
     app:layoutManager="LinearLayoutManager"
-    tools:context=".ui.main.fragments.librosLista.LibroFragment"
+    tools:context=".ui.main.fragments.fragmentListaLibros.LibroFragment"
     tools:listitem="@layout/book_item" />

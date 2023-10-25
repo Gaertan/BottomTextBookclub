@@ -1,4 +1,4 @@
-package com.example.bottomtextbookclub;
+package com.example.bottomtextbookclub.login;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,6 +15,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.bottomtextbookclub.R;
 import com.example.bottomtextbookclub.data.model.negocio.dominio.Categorias;
 import com.example.bottomtextbookclub.data.model.negocio.dominio.UsuarioAccount;
 import com.example.bottomtextbookclub.ui.main.NavegacionPrincipal;
