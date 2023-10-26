@@ -8,6 +8,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +31,11 @@ public class DialogFragmentConfrirmar extends DialogFragment {
     public DialogFragmentConfrirmar() {
         // Required empty public constructor
     }
+
+
+
+
+
     // TODO: Rename and change types and number of parameters
     public static DialogFragmentConfrirmar newInstance(String textoAMostrar) {
         DialogFragmentConfrirmar fragment = new DialogFragmentConfrirmar();
@@ -78,6 +84,7 @@ public class DialogFragmentConfrirmar extends DialogFragment {
             @Override
             public void onClick(View v) {
                 confirmacionDialogListener.onResultDialogConfirmacion(true, (String) textviewprincipal.getText());
+                System.out.println("se ha pulsado onClick en el dialogFragmentconfirmar");
                 dismiss();
             }
         });
@@ -97,7 +104,12 @@ public class DialogFragmentConfrirmar extends DialogFragment {
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        confirmacionDialogListener = (ConfirmacionDialogListener) context;
+        if (context instanceof ConfirmacionDialogListener) {
+            confirmacionDialogListener = (ConfirmacionDialogListener) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement ConfirmacionDialogListener");
+        }
     }
 
 

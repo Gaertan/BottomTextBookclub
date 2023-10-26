@@ -71,7 +71,8 @@ public class NavegacionPrincipal extends AppCompatActivity implements Categorias
     }
     private void volverOcerrar(){
         if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
-        Intent intent = new Intent(this, LoginScreen.class);
+      //  Intent intent = new Intent(this, LoginScreen.class);
+            Intent intent = new Intent(this, AutenticacionActivity.class);
         startActivity(intent);
         finish();
     } else {

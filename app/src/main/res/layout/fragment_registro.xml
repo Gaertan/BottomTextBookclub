@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".login.LoginScreen">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="-90dp"
+        tools:layout_editor_absoluteY="97dp">
+
+        <ImageView
+            android:id="@+id/imageViewLoginFragmentregistro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:srcCompat="@mipmap/main_foreground" />
+
+        <TextView
+            android:id="@+id/textViewUsuarioFragmentregistro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/usuario_literal" />
+
+        <EditText
+            android:id="@+id/loginUsuarioFragmentregistro"
+            android:layout_width="263dp"
+            android:layout_height="45dp"
+            android:editable="true" />
+
+        <TextView
+            android:id="@+id/textView4Fragmentregistro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/password_literal" />
+
+        <EditText
+            android:id="@+id/loginPasswordFragmentregistro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword" />
+
+        <EditText
+            android:id="@+id/loginPasswordFragmentregistro2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword" />
+
+        <TextView
+            android:id="@+id/textCategoriaFragmentregistro"
+            android:layout_width="213dp"
+            android:layout_height="wrap_content"
+            android:text="@string/categoria_favorita"
+            android:visibility="visible"
+            tools:visibility="visible" />
+
+        <ScrollView
+            android:id="@+id/scrollViewFragmentregistro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            tools:visibility="visible">
+
+            <Spinner
+                android:id="@+id/spinnerCategoriaFragmentregistro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="19dp"
+                android:layout_marginBottom="76dp"
+                android:visibility="visible"
+                tools:visibility="visible" />
+        </ScrollView>
+
+        <Button
+            android:id="@+id/buttonRegistrarseFragmentregistro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:text="@string/registrar_literal" />
+
+        <Button
+            android:id="@+id/buttonVolverFragmentoRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/previous" />
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group3Fragmentlogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="scrollViewFragmentregistro,buttonRegistrarseFragmentregistro,textViewUsuarioFragmentregistro" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
