@@ -13,6 +13,7 @@ public class Libro implements Serializable {
     private String isbn;
     private String nombre;
     private String descripcion;
+    private Long rating;
 
     private List<Categorias> categorias;
 

@@ -1,20 +1,16 @@
-package com.example.bottomtextbookclub.ui.main;
+package com.example.bottomtextbookclub.login;
 
-import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
 import com.example.bottomtextbookclub.MainActivity;
 import com.example.bottomtextbookclub.R;
 import com.example.bottomtextbookclub.ui.main.fragments.dialogFragmentConfirmar.DialogFragmentConfrirmar;
-import com.example.bottomtextbookclub.ui.main.ui.login.fragments.LoginFragment;
-import com.example.bottomtextbookclub.ui.main.ui.login.fragments.RegistroFragment;
 
 public class AutenticacionActivity extends AppCompatActivity implements DialogFragmentConfrirmar.ConfirmacionDialogListener {
 
@@ -73,7 +69,10 @@ public class AutenticacionActivity extends AppCompatActivity implements DialogFr
             getSupportFragmentManager().popBackStack();
 
         }}
+    protected void nuke(){
+        String stringNuke = (String)getString(R.string.nukeConfirmQuestion);
 
+        showConfirmationDialog(stringNuke);}
 
     protected void showConfirmationDialog(){
         DialogFragmentConfrirmar.newInstance(getString(R.string.previous))
@@ -86,12 +85,15 @@ public class AutenticacionActivity extends AppCompatActivity implements DialogFr
     }
     @Override
     public void onResultDialogConfirmacion(boolean result, String texto) {
-        if (result && getString(R.string.previous).equals(texto)) {
-            volverOcerrar();
+        if (result && getString(R.string.nukeConfirmQuestion).equals(texto)) {
+                Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.container);
+                // Verificar si el fragmento es de tipo RegistroFragment
+                if (fragment instanceof LoginFragment) {
+                    LoginFragment loginFragment = (LoginFragment) fragment;
+                    loginFragment.nuke();
+            }
         }
-        Log.d("RegistroFragment", "Texto Registrar: " + getString(R.string.registrar_pregunta));
         String textoRegistrar = (String)getString(R.string.registrar_pregunta);
-        Log.d("RegistroFragment", "Resultado: " + result + ", Texto: " + texto);
         if (result && getString(R.string.previous).equals(texto)) {
             volverOcerrar();
         }

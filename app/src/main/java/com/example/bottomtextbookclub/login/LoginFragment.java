@@ -1,7 +1,6 @@
-package com.example.bottomtextbookclub.ui.main.ui.login.fragments;
+package com.example.bottomtextbookclub.login;
 
 import android.accounts.AccountManager;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -13,8 +12,6 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -51,7 +48,8 @@ public class LoginFragment extends Fragment {
         nukeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                nuke();
+                AutenticacionActivity activity = (AutenticacionActivity) requireActivity();
+                activity.nuke();
             }
         });
 
@@ -207,10 +205,11 @@ public class LoginFragment extends Fragment {
     }
 
 
-    private void nuke(){
+    protected void nuke(){
         AccountManager accountManager = AccountManager.get(getActivity());
 
-        try { UsuarioAccount.tabulaRasa(accountManager);
+        try {
+            UsuarioAccount.tabulaRasa(accountManager);
             Toast.makeText(getActivity(), "todos los usuarios han sido eliminados", Toast.LENGTH_LONG).show();
         }
         catch (Exception e) {

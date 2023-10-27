@@ -12,8 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.bottomtextbookclub.login.LoginScreen;
-import com.example.bottomtextbookclub.ui.main.AutenticacionActivity;
+import com.example.bottomtextbookclub.login.AutenticacionActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -54,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-       // Intent intent = new Intent(this, LoginScreen.class);
+       // Intent intent = new Intent(this, LoginScreen.class); DEPRECATED
         Intent intent = new Intent(this, AutenticacionActivity.class);
         startActivity(intent);
     }

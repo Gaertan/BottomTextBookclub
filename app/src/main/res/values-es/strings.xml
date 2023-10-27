@@ -39,12 +39,17 @@
 
     <!-- Strings used for fragments for navigation -->
 
+    <string name="restartMayBeRequired">Cambios aplicados, es posible que necesite reiniciar</string>
+    <string name="restartQuestion">¿reiniciar?</string>
+    <string name="pref_locale">es</string>
 
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Continuar</string>
     <string name="previous">Volver</string>
     <string name="confirmQuestion">¿Desea Continuar?</string>
+    <string name="nukeConfirmQuestion">¿Seguro que deseas borrar todas las cuentas?</string>
+    <string name="lang">lenguaje</string>
     <string name="confirm">Confirmar</string>
     <string name="cancel">Cancelar</string>
     <string name="lorem_ipsum">

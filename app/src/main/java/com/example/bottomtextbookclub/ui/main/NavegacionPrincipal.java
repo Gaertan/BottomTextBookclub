@@ -14,10 +14,10 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.bottomtextbookclub.R;
+import com.example.bottomtextbookclub.data.model.MyApplication;
 import com.example.bottomtextbookclub.data.model.negocio.Libros;
 import com.example.bottomtextbookclub.data.model.negocio.dominio.Categorias;
 import com.example.bottomtextbookclub.data.model.negocio.dominio.Libro;
-import com.example.bottomtextbookclub.login.LoginScreen;
 import com.example.bottomtextbookclub.ui.main.fragments.dialogFragmentConfirmar.DialogFragmentConfrirmar;
 import com.example.bottomtextbookclub.ui.main.fragments.fragmentListaCategorias.CategoriasAdapter;
 import com.example.bottomtextbookclub.ui.main.fragments.fragmentListaCategorias.NavegacionPrincipalFragmentCategorias;
@@ -25,6 +25,7 @@ import com.example.bottomtextbookclub.ui.main.fragments.fragmentDetailsLibro.Det
 import com.example.bottomtextbookclub.ui.main.fragments.dialogFragmentAbout.DialogAbout;
 import com.example.bottomtextbookclub.ui.main.fragments.dialogFragmentScrollable.DialogScrollable;
 import com.example.bottomtextbookclub.ui.main.fragments.fragmentListaLibros.LibroFragment;
+import com.example.bottomtextbookclub.login.AutenticacionActivity;
 
 import java.util.ArrayList;
 
@@ -55,6 +56,18 @@ public class NavegacionPrincipal extends AppCompatActivity implements Categorias
             public void onClick(View v) {
                 onBackPressed();
             }});
+
+
+
+
+        Button buttonLang = findViewById(R.id.button_navegacion_principal_lang);
+        buttonLang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MyApplication myApp = (MyApplication) getApplication();
+                myApp.showDialogFragmentLang(getSupportFragmentManager());
+            }});
+
 
     }
 

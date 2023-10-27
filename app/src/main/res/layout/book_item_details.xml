@@ -30,12 +30,27 @@
                 android:text="placeholder"
                 android:textAppearance="?attr/textAppearanceListItem" />
 
-            <ImageView
-                android:id="@+id/imageViewLibroDetails"
-                android:layout_width="224dp"
-                android:layout_height="372dp"
-                android:foregroundGravity="center_vertical|center|center_horizontal"
-                tools:srcCompat="@drawable/i9788493806125" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/imageViewLibroDetails"
+                    android:layout_width="224dp"
+                    android:layout_height="372dp"
+                    android:foregroundGravity="center_vertical|center|center_horizontal"
+                    tools:srcCompat="@drawable/i9788493806125" />
+
+                <RatingBar
+                    android:id="@+id/ratingBarLibroDetails"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/imageViewLibroDetails"
+                    android:layout_alignParentBottom="false"
+                    android:max="5"
+                    android:numStars="5" />
+            </RelativeLayout>
 
             <TextView
                 android:id="@+id/textViewIsbnLibroDetails"

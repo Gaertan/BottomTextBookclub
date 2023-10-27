@@ -3,10 +3,11 @@ package com.example.bottomtextbookclub.data.model.negocio;
 import com.example.bottomtextbookclub.data.model.negocio.dominio.Categorias;
 import com.example.bottomtextbookclub.data.model.negocio.dominio.Libro;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Libros {
+public class Libros implements Serializable {
 
     private static Libros instancia;
     private ArrayList<Libro> listaLibros;

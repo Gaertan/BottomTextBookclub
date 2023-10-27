@@ -7,12 +7,8 @@
     android:orientation="horizontal">
 
     <LinearLayout
-        android:id="@+id/linearLayoutVerticalLibroCard"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center|center_horizontal|center_vertical"
-        android:foregroundGravity="center_vertical|center|center_horizontal"
-        android:gravity="center|center_horizontal|center_vertical"
         android:orientation="vertical">
 
         <TextView
@@ -21,18 +17,47 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center|center_horizontal|center_vertical"
             android:layout_margin="@dimen/text_margin"
+            android:layout_marginStart="@dimen/text_margin"
+            android:layout_marginTop="@dimen/text_margin"
+            android:layout_marginEnd="@dimen/text_margin"
+            android:layout_marginBottom="@dimen/text_margin"
             android:foregroundGravity="center_vertical|center|center_horizontal"
             android:text="placeholder"
             android:textAppearance="?attr/textAppearanceListItem" />
 
-        <ImageView
-            android:id="@+id/imageViewLibroCard"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="175dp"
-            android:layout_gravity="center|center_horizontal|center_vertical"
-            android:layout_weight="1"
-            android:foregroundGravity="center_vertical|center|center_horizontal"
-            app:srcCompat="@drawable/i9788493806125" />
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageViewLibroCard"
+                android:layout_width="match_parent"
+                android:layout_height="175dp"
+                android:layout_gravity="center|center_horizontal|center_vertical"
+                android:layout_weight="1"
+                android:foregroundGravity="center_vertical|center|center_horizontal"
+                app:srcCompat="@drawable/i9788493806125" />
+
+            <RatingBar
+                android:id="@+id/ratingBarLibro"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/imageViewLibroCard"
+                android:layout_centerInParent="true"
+                android:backgroundTintMode="add"
+                android:clickable="false"
+                android:fitsSystemWindows="false"
+                android:foregroundGravity="center"
+                android:foregroundTintMode="add"
+                android:isIndicator="false"
+                android:max="5"
+                android:numStars="5"
+                android:progressBackgroundTint="#000000"
+                android:progressBackgroundTintMode="src_atop"
+                android:stepSize="0.1" />
+
+        </RelativeLayout>
 
         <TextView
             android:id="@+id/textViewIsbnLibroCard"

@@ -12,7 +12,7 @@
 
     <string name="categoria">category</string>
     <string name="categoria_favorita">favourite category</string>
-
+    <string name="lang">lang</string>
     <string name="terror">terror</string>
     <string name="accion">acción</string>
     <string name="comedia">comedia</string>
@@ -35,14 +35,16 @@
     <string name="menu_historial">"Record/recent watched"</string>
     <string name="comprar">"buy"</string>
 
-
-
+    <string name="restartMayBeRequired">Changes applied, you may need to restart</string>
+    <string name="restartQuestion">restart?</string>
+    <string name="pref_locale">en</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
     <string name="confirmQuestion">Are you sure?</string>
+    <string name="nukeConfirmQuestion">Are you sure you want to delete all?</string>
     <string name="confirm">Confirm</string>
     <string name="cancel">Cancel</string>
     <string name="lorem_ipsum">
@@ -81,6 +83,20 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
+
+
+    <string-array name="CountryCodes" >
+        <item>44,GB</item>
+        <item>34,ES</item>
+    </string-array>
+
+
+
+
+
+
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

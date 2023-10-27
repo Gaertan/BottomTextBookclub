@@ -1,4 +1,4 @@
-package com.example.bottomtextbookclub.ui.main.ui.login.fragments;
+package com.example.bottomtextbookclub.login;
 
 
 import android.accounts.AccountManager;
@@ -26,9 +26,7 @@ import java.util.List;
 import androidx.fragment.app.Fragment;
 
 
-import com.example.bottomtextbookclub.ui.main.AutenticacionActivity;
 import com.example.bottomtextbookclub.ui.main.fragments.dialogFragmentConfirmar.DialogFragmentConfrirmar;
-import com.example.bottomtextbookclub.ui.main.fragments.dialogFragmentConfirmar.DialogFragmentConfrirmar.ConfirmacionDialogListener;
 
 
 public class RegistroFragment extends Fragment implements DialogFragmentConfrirmar.ConfirmacionDialogListener {

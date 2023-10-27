@@ -3,7 +3,9 @@ package com.example.bottomtextbookclub.data.model.negocio.dominio;
 import android.accounts.Account;
 import android.accounts.AccountManager;
 
-public class UsuarioAccount {
+import java.io.Serializable;
+
+public class UsuarioAccount implements Serializable {
 
     public static final String ACCOUNT_TYPE = "com.example.bottomtextbookclub.data.model";
     public static final String ACCOUNT_NAME = "BottomTextBookClub";
