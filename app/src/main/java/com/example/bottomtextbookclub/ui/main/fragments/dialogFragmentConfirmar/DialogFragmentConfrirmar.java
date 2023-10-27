@@ -131,9 +131,11 @@ private void onConfirmacionClick() {
 }
 // Método para mostrar el diálogo de confirmación
 private void mostrarDialogoConfirmacion(String mensaje) {
+ //Si es dentro de un Fragment, asegúrate de usar getParentFragmentManager() en lugar de getSupportFragmentManager().
     DialogFragmentConfrirmar.newInstance(mensaje)
             .show(getSupportFragmentManager(), "confirmacionDialog");
 }
+
 -----------------------------------------------
 // Implementación de la interfaz ConfirmacionDialogListener, si solo resultado;
 @Override
