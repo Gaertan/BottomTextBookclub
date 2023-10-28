@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.transition.TransitionInflater;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,7 +57,8 @@ public class LibroFragment extends Fragment implements LibroRecyclerViewAdapter.
         if (getArguments() != null) {
             //  mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
         }
-
+        TransitionInflater transInflater = TransitionInflater.from(requireContext());
+        setExitTransition(transInflater.inflateTransition(R.transition.slide_right));
     }
     @Override
     public void onAttach(@NonNull Context context) {
@@ -91,7 +93,7 @@ public class LibroFragment extends Fragment implements LibroRecyclerViewAdapter.
     public void actualizarListaLibros(ArrayList<Libro> listaLibros) {
         this.listaLibros = listaLibros;
         if (getView() != null) {
-            RecyclerView recyclerView = getView().findViewById(R.id.recyclerView);
+            RecyclerView recyclerView = getView().findViewById(R.id.recyclerViewCategorias);
            recyclerView.setAdapter(new LibroRecyclerViewAdapter(listaLibros));
         }
         if (adapter != null) {

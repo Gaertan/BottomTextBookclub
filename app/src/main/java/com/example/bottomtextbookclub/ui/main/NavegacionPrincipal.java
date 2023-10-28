@@ -4,21 +4,25 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.bottomtextbookclub.utils.LocaleHelper;
 import com.example.bottomtextbookclub.R;
-import com.example.bottomtextbookclub.data.model.MyApplication;
 import com.example.bottomtextbookclub.data.model.negocio.Libros;
 import com.example.bottomtextbookclub.data.model.negocio.dominio.Categorias;
 import com.example.bottomtextbookclub.data.model.negocio.dominio.Libro;
 import com.example.bottomtextbookclub.ui.main.fragments.dialogFragmentConfirmar.DialogFragmentConfrirmar;
+import com.example.bottomtextbookclub.ui.main.fragments.dialogFragmentLang.DialogFragmentLang;
 import com.example.bottomtextbookclub.ui.main.fragments.fragmentListaCategorias.CategoriasAdapter;
 import com.example.bottomtextbookclub.ui.main.fragments.fragmentListaCategorias.NavegacionPrincipalFragmentCategorias;
 import com.example.bottomtextbookclub.ui.main.fragments.fragmentDetailsLibro.DetailsLibroFragment;
@@ -29,10 +33,13 @@ import com.example.bottomtextbookclub.login.AutenticacionActivity;
 
 import java.util.ArrayList;
 
-public class NavegacionPrincipal extends AppCompatActivity implements CategoriasAdapter.OnCategoriaClickListener, LibroFragment.OnLibroClickListener, DialogFragmentConfrirmar.ConfirmacionDialogListener {
+public class NavegacionPrincipal extends AppCompatActivity implements  CategoriasAdapter.OnCategoriaClickListener,LibroFragment.OnLibroClickListener, DialogFragmentConfrirmar.ConfirmacionDialogListener, DialogFragmentLang.OnLanguageSelectedListener{
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         Libros libros = Libros.getInstancia();
         libros.init();
 
@@ -64,19 +71,48 @@ public class NavegacionPrincipal extends AppCompatActivity implements Categorias
         buttonLang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MyApplication myApp = (MyApplication) getApplication();
-                myApp.showDialogFragmentLang(getSupportFragmentManager());
+                cambiarIdioma();
             }});
 
 
     }
 
+
+
+
+
+
+
+    //-------------------------------------------idioma
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.wrapContext(newBase));
+    }
+    private void cambiarIdioma(){showDialogFragmentLang(getSupportFragmentManager());}
+
+
+    public void showDialogFragmentLang(FragmentManager fragmentManager) {
+        DialogFragmentLang dialogFragment = new DialogFragmentLang();
+        dialogFragment.show(fragmentManager, "dialog_fragment_lang");
+    }
+
+    @Override
+    public void onLanguageSelected(String languageCode) {
+
+        LocaleHelper.setLocale(this, languageCode);
+
+        recreate();
+
+    }
+    //-------------------------------------------flujo
     @Override
     public void onResultDialogConfirmacion(boolean result, String texto) {
         if (result && getString(R.string.previous).equals(texto)) {
             volverOcerrar();
         }
-
+        if (result && getString(R.string.restartQuestion).equals(texto)) {
+            volverOcerrar();
+        }
         }
     @Override
     public void onBackPressed() {
@@ -90,10 +126,21 @@ public class NavegacionPrincipal extends AppCompatActivity implements Categorias
         finish();
     } else {
         getSupportFragmentManager().popBackStack();
-
     }}
 
 
+    class MyOnClickListener implements View.OnClickListener {
+        @Override
+        public void onClick(View v) {
+            RecyclerView recyclerView = (RecyclerView) v.findViewById(R.id.recyclerViewCategorias);
+            int itemPosition = recyclerView.indexOfChild(v);
+            Log.e("Clicked and Position is ",String.valueOf(itemPosition));
+        }
+    }
+
+
+
+    //-------------------------------------------menús
     protected void showConfirmationDialog(){
         DialogFragmentConfrirmar.newInstance(getString(R.string.previous))
                 .show(getSupportFragmentManager(), "confirmacionDialog");
@@ -147,14 +194,15 @@ public class NavegacionPrincipal extends AppCompatActivity implements Categorias
     }
 
 
+    //-------------------------------------------navegacion fragmento
+
 
     @Override
     public void onCategoriaClick(Categorias categoria) {
-        Libros libros =Libros.getInstancia();
+        // Handle the category click in your activity
+        Libros libros = Libros.getInstancia();
         ArrayList<Libro> listaLibros = libros.getLibrosPorCategoria(categoria);
-
         LibroFragment libroFragment = LibroFragment.newInstance(3);
-
         libroFragment.actualizarListaLibros(listaLibros);
         cambiarFragmento(libroFragment);
     }
@@ -171,7 +219,6 @@ public class NavegacionPrincipal extends AppCompatActivity implements Categorias
                 .addToBackStack(null)
                 .commit();
     }
-
 
 
 

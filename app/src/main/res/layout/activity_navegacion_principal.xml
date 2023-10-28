@@ -22,7 +22,13 @@
             android:layout_height="match_parent"
             android:layout_alignWithParentIfMissing="true"
             android:layout_below="@id/toolbar"
-            android:clickable="false" />
+            android:alpha="@dimen/material_emphasis_high_type"
+            android:background="@drawable/backgroundbookshelf"
+            android:backgroundTint="@color/md_theme_dark_inversePrimary"
+            android:backgroundTintMode="add"
+            android:clickable="false"
+            android:foregroundTintMode="multiply"
+            android:scrollbarAlwaysDrawHorizontalTrack="true" />
 
         <Button
             android:id="@+id/button_navegacion_principal_lang"

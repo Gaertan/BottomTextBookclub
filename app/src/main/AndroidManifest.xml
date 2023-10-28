@@ -9,8 +9,8 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".data.model.MyApplication"
-        android:configChanges="locale|orientation"
+        android:name=".MyApplication"
+        android:forceDarkAllowed="true"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:enableOnBackInvokedCallback="true"
@@ -25,11 +25,15 @@
 
         <activity
             android:name=".ui.main.NavegacionPrincipal"
+            android:forceDarkAllowed="true"
+
             android:exported="false"
-            android:configChanges="locale"/>
+           />
         <activity android:name=".login.AutenticacionActivity"
             android:exported="true"
-            android:configChanges="locale">
+            android:forceDarkAllowed="true"
+
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -37,7 +41,7 @@
         </activity>
 
         <service
-            android:name=".data.model.Autenticador"
+            android:name=".utils.Autenticador"
 
             android:exported="true">
             <intent-filter>
@@ -48,13 +52,10 @@
                 android:name="android.accounts.AccountAuthenticator"
                 android:resource="@xml/authenticator" />
         </service>
-        <activity
-            android:name="com.example.bottomtextbookclub.data.model.MyActivity"
-            android:configChanges="locale"
-            tools:ignore="Instantiatable"></activity>
+
+
         <activity
             android:name=".MainActivity"
-            android:configChanges="locale"
             android:exported="true">
 
             <intent-filter>

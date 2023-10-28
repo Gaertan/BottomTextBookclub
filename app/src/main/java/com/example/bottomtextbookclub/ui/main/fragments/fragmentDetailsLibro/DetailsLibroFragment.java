@@ -3,6 +3,7 @@ package com.example.bottomtextbookclub.ui.main.fragments.fragmentDetailsLibro;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.transition.TransitionInflater;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,7 +40,12 @@ public class DetailsLibroFragment extends Fragment {
         if (getArguments() != null) {
             libro = (Libro) getArguments().getSerializable(ARG_LIBRO);
         }
+
+        TransitionInflater transInflater = TransitionInflater.from(requireContext());
+        setExitTransition(transInflater.inflateTransition(R.transition.slide_right));
+
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

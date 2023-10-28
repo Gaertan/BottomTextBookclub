@@ -4,6 +4,9 @@ import android.accounts.AccountManager;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.transition.TransitionInflater;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,7 +26,7 @@ public class LoginFragment extends Fragment {
     protected EditText editTextUsuario;
     protected EditText editTextPassword;
     protected CheckBox checkBoxRecordar;
-
+    protected Button loginButton;
     public static LoginFragment newInstance() {
         return new LoginFragment();
     }
@@ -35,8 +38,7 @@ public class LoginFragment extends Fragment {
         editTextUsuario = view.findViewById(R.id.loginUsuarioFragmentlogin);
         editTextPassword = view.findViewById(R.id.loginPasswordFragmentlogin);
         checkBoxRecordar = view.findViewById(R.id.checkBoxRecordarFragmentlogin);
-
-        Button loginButton = view.findViewById(R.id.buttonLogin2Fragmentlogin);
+        loginButton = view.findViewById(R.id.buttonLogin2Fragmentlogin);
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,6 +64,7 @@ public class LoginFragment extends Fragment {
                 abrirRegistro(nombreUsuario,password);
             }
         });
+
         Button buttonVolver =  view.findViewById(R.id.buttonVolverFragmentoLogin);
 
         buttonVolver.setOnClickListener(new View.OnClickListener() {
@@ -71,8 +74,29 @@ public class LoginFragment extends Fragment {
             }});
 
 
+        Button buttonLang = view.findViewById(R.id.button_login_lang);
+        buttonLang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AutenticacionActivity activity = (AutenticacionActivity) getActivity();
+                if (activity != null) {
+                    activity.cambiarIdioma();
+                }
+            }});
 
+
+        loginButton.setEnabled(false);
+
+        editTextUsuario.addTextChangedListener(passwordTextWatcher);
+        editTextPassword.addTextChangedListener(passwordTextWatcher);
         cargarCredenciales();
+
+
+
+        TransitionInflater transInflater = TransitionInflater.from(requireContext());
+
+
+
         return view;
     }
 
@@ -218,7 +242,26 @@ public class LoginFragment extends Fragment {
     }
 
 
+    private TextWatcher passwordTextWatcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {}
+
+        @Override
+        public void afterTextChanged(Editable s) {
+            // Verifica las condiciones y habilita o deshabilita el botón de registro
+
+
+            String nombreUsuario = editTextUsuario.getText().toString();
+            String password=editTextPassword.getText().toString();
+
+            boolean isValid = !password.isEmpty() && password.length() >= 3 && nombreUsuario.length()>=3;
+
+            loginButton.setEnabled(isValid);
+        }
+    };
 
 
 }

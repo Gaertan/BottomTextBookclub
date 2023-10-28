@@ -1,4 +1,4 @@
-package com.example.bottomtextbookclub.data.model;
+package com.example.bottomtextbookclub.utils;
 
 import android.accounts.AbstractAccountAuthenticator;
 import android.accounts.Account;
@@ -12,6 +12,7 @@ public class Autenticador extends AbstractAccountAuthenticator {
     public Autenticador(Context context) {
         super(context);
     }
+
 
     @Override
     public Bundle editProperties(AccountAuthenticatorResponse response, String accountType) {

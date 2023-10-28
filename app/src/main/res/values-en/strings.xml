@@ -18,6 +18,7 @@
     <string name="comerciales">commercial</string>
     <string name="detective">detectives</string>
     <string name="drama">drama</string>
+    <string name="defaultCategory">"Other/default"</string>
 
 
 

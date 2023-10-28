@@ -21,15 +21,42 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/imageViewLoginFragmentlogin"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center|center_horizontal|center_vertical"
-                android:foregroundGravity="center_vertical|center|center_horizontal"
-                android:visibility="visible"
-                app:srcCompat="@mipmap/main_foreground"
-                tools:visibility="visible" />
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageViewLoginFragmentlogin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|center_horizontal|center_vertical"
+                    android:foregroundGravity="center_vertical|center|center_horizontal"
+                    android:visibility="visible"
+                    app:srcCompat="@mipmap/main_foreground"
+                    tools:visibility="visible" />
+
+                <Button
+                    android:id="@+id/button_login_lang"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|center_horizontal|center_vertical"
+                    android:foregroundGravity="center_horizontal"
+                    android:gravity="center|center_horizontal|center_vertical"
+                    android:text="@string/lang" />
+
+                <Button
+                    android:id="@+id/buttonForbiddenButtonFragmentlogin"
+                    android:layout_width="91dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center|center_horizontal|center_vertical"
+                    android:backgroundTint="#E33636"
+                    android:foregroundGravity="center_vertical|center|center_horizontal"
+                    android:shadowColor="#EC0E0E"
+                    android:text="nuke"
+                    android:textColor="#FFFFFF"
+                    app:strokeColor="#DD1818" />
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/textViewUsuarioFragmentlogin"
@@ -95,30 +122,28 @@
 
             </LinearLayout>
 
-            <Button
-                android:id="@+id/buttonForbiddenButtonFragmentlogin"
-                android:layout_width="91dp"
-                android:layout_height="48dp"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_gravity="center|center_horizontal|center_vertical"
-                android:backgroundTint="#E33636"
-                android:foregroundGravity="center_vertical|center|center_horizontal"
-                android:shadowColor="#EC0E0E"
-                android:text="nuke"
-                android:textColor="#FFFFFF"
-                app:strokeColor="#DD1818" />
+                android:foregroundGravity="center|center_horizontal"
+                android:gravity="center|center_horizontal|center_vertical"
+                android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/buttonRegistrarseFragmentlogin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="66dp"
-                android:text="@string/registrar_literal" />
+                <Button
+                    android:id="@+id/buttonRegistrarseFragmentlogin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
 
-            <Button
-                android:id="@+id/buttonVolverFragmentoLogin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/previous" />
+                    android:text="@string/registrar_literal" />
+
+                <Button
+                    android:id="@+id/buttonVolverFragmentoLogin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/previous" />
+
+            </LinearLayout>
 
         </LinearLayout>
 

@@ -3,6 +3,7 @@ package com.example.bottomtextbookclub.data.model.negocio.dominio;
 import java.io.Serializable;
 
 public enum Categorias implements Serializable {
+    DEFAULT("@string/defaultCategory"),
     TERROR("@string/terror"),
     ACCION("@string/accion"),
     COMEDIA("@string/comedia"),

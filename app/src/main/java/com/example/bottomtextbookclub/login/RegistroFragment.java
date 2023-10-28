@@ -5,6 +5,7 @@ import android.accounts.AccountManager;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.transition.TransitionInflater;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -120,6 +121,8 @@ public class RegistroFragment extends Fragment implements DialogFragmentConfrirm
                 showConfirmationDialog(texto);
             }});
 
+        TransitionInflater transInflater = TransitionInflater.from(requireContext());
+        setExitTransition(transInflater.inflateTransition(R.transition.slide_right));
 
         return view;
     }

@@ -35,7 +35,7 @@ public class NavegacionPrincipalFragmentCategorias extends Fragment implements C
         View view = inflater.inflate(R.layout.fragment_navegacion_categorias, container, false);
 
         // Inicializa el RecyclerView y configura el adaptador
-        RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
+        RecyclerView recyclerView = view.findViewById(R.id.recyclerViewCategorias);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
 
@@ -48,13 +48,12 @@ public class NavegacionPrincipalFragmentCategorias extends Fragment implements C
 
         recyclerView.setAdapter(adapter);
 
-        // Resto del código
-
         return view;
     }
 
     @Override
     public void onCategoriaClick(Categorias categoria) {
+        System.out.println("se entra en el metodo onCategoriasClien de navegacionprincipalfragmentcategorias" );
         if (getActivity() != null) {
             ((NavegacionPrincipal) getActivity()).onCategoriaClick(categoria);
         }

@@ -9,7 +9,6 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -19,7 +18,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.bottomtextbookclub.R;
-import com.example.bottomtextbookclub.data.model.MyApplication;
+import com.example.bottomtextbookclub.MyApplication;
 
 import java.util.Locale;
 
@@ -30,6 +29,21 @@ import java.util.Locale;
  */
 public class DialogFragmentLang extends DialogFragment {
 
+    public interface OnLanguageSelectedListener {
+        void onLanguageSelected(String languageCode);
+    }
+
+    private OnLanguageSelectedListener mListener;
+    @Override
+    public void onAttach( Context context) {
+        super.onAttach(context);
+
+        try {
+            mListener = (OnLanguageSelectedListener) context;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(context.toString() + " debe implementar OnLanguageSelectedListener");
+        }
+    }
 
     public static DialogFragmentLang newInstance(String param1, String param2) {
         DialogFragmentLang fragment = new DialogFragmentLang();
@@ -59,10 +73,17 @@ public class DialogFragmentLang extends DialogFragment {
                 String selectedCountryCode = recourseList[position];
                 String[] parts = selectedCountryCode.split(",");
                 String selectedLanguageCode = parts[1].toLowerCase();
+
                 MyApplication myApplication = (MyApplication) requireActivity().getApplication();
                 myApplication.cambiarLenguage(getContext(),selectedLanguageCode);
+
             System.out.println("el idioma ha intentado cambiarse con   +  " +selectedLanguageCode);
-                dismiss(); // Cierra el DialogFragment después de seleccionar un idioma
+              //  myApplication.promptRestart(mListener);
+                if (mListener != null) {
+                    mListener.onLanguageSelected(selectedLanguageCode);
+                }
+
+                dismiss();
             }
         });
 

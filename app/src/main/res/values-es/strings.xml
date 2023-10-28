@@ -12,6 +12,7 @@
     <string name="programacion_literal">Programacion multimedia y dispositivos moviles</string>
     <string name="categoria">categoria</string>
     <string name="categoria_favorita">categoria favorita</string>
+    <string name="defaultCategory">"Otro/por defecto"</string>
 
     <string name="terror">terror</string>
     <string name="accion">acción</string>

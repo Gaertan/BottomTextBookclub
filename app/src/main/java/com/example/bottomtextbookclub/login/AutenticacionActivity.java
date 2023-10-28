@@ -3,16 +3,18 @@ package com.example.bottomtextbookclub.login;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
+import com.example.bottomtextbookclub.utils.LocaleHelper;
 import com.example.bottomtextbookclub.MainActivity;
 import com.example.bottomtextbookclub.R;
 import com.example.bottomtextbookclub.ui.main.fragments.dialogFragmentConfirmar.DialogFragmentConfrirmar;
+import com.example.bottomtextbookclub.ui.main.fragments.dialogFragmentLang.DialogFragmentLang;
 
-public class AutenticacionActivity extends AppCompatActivity implements DialogFragmentConfrirmar.ConfirmacionDialogListener {
+public class AutenticacionActivity extends AppCompatActivity implements DialogFragmentConfrirmar.ConfirmacionDialogListener, DialogFragmentLang.OnLanguageSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +33,27 @@ public class AutenticacionActivity extends AppCompatActivity implements DialogFr
         }
         return "";
     }
+    //-------------------------------------------idioma
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.wrapContext(newBase));
+    }
+    void cambiarIdioma(){showDialogFragmentLang(getSupportFragmentManager());}
 
+
+    public static void showDialogFragmentLang(FragmentManager fragmentManager) {
+        DialogFragmentLang dialogFragment = new DialogFragmentLang();
+        dialogFragment.show(fragmentManager, "dialog_fragment_lang");
+    }
+
+    @Override
+    public void onLanguageSelected(String languageCode) {
+
+        LocaleHelper.setLocale(this, languageCode);
+
+        recreate();
+
+    }
     private void registrar() {
         // Obtener el fragmento activo
         Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.container);

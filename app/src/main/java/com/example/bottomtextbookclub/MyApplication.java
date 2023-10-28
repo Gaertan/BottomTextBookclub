@@ -1,27 +1,18 @@
-package com.example.bottomtextbookclub.data.model;
+package com.example.bottomtextbookclub;
 
+import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.Configuration;
-import android.content.res.Resources;
-import android.os.Build;
-import android.util.DisplayMetrics;
 import android.widget.Toast;
 
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-
-import com.example.bottomtextbookclub.LocaleHelper;
+import com.example.bottomtextbookclub.utils.AutenticadorService;
+import com.example.bottomtextbookclub.utils.LocaleHelper;
 import com.example.bottomtextbookclub.R;
 import com.example.bottomtextbookclub.data.model.negocio.Libros;
-import com.example.bottomtextbookclub.data.model.negocio.dominio.Categorias;
-import com.example.bottomtextbookclub.data.model.negocio.dominio.Libro;
 import com.example.bottomtextbookclub.ui.main.fragments.dialogFragmentConfirmar.DialogFragmentConfrirmar;
 import com.example.bottomtextbookclub.ui.main.fragments.dialogFragmentLang.DialogFragmentLang;
-
-import java.util.Locale;
 
 public class MyApplication extends Application implements DialogFragmentConfrirmar.ConfirmacionDialogListener {
     private static final String PREFS_NAME = "mainPrefs";
@@ -35,7 +26,8 @@ public class MyApplication extends Application implements DialogFragmentConfrirm
       //inicializa el idioma con el default del sistema
       //  selectedLanguage = Locale.getDefault().getLanguage();
       //  changeLanguage(selectedLanguage);
-
+        Intent autenticadorServiceIntent = new Intent(this, AutenticadorService.class);
+        startService(autenticadorServiceIntent);
     }
     public void init(String username){
         Libros libros = Libros.getInstancia();
@@ -45,6 +37,7 @@ public class MyApplication extends Application implements DialogFragmentConfrirm
 
 
     }
+
 //-------------------------------------------- usuario
 
     public boolean isUserLoggedIn() {
@@ -74,15 +67,11 @@ public class MyApplication extends Application implements DialogFragmentConfrirm
         LocaleHelper.setLocale(context, language);
         Toast.makeText(getApplicationContext(),getString(R.string.restartMayBeRequired), Toast.LENGTH_LONG).show();
     }
-
-    public void showDialogFragmentLang(FragmentManager fragmentManager) {
-        DialogFragmentLang dialogFragment = new DialogFragmentLang();
-        dialogFragment.show(fragmentManager, "dialog_fragment_lang");
+    public String getSelectedLanguage() {
+        SharedPreferences preferences = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        return preferences.getString(SELECTED_LANGUAGE, null);
     }
 
-    protected void showConfirmationDialog(){
-
-    }
 
     @Override
     public void onResultDialogConfirmacion(boolean result, String texto) {
@@ -91,6 +80,31 @@ public class MyApplication extends Application implements DialogFragmentConfrirm
         }
 
     }
+
+    public void promptRestart(DialogFragmentLang.OnLanguageSelectedListener onLanguageSelectedListener){
+        System.out.println("se entra en promptrestart de MyApplication");
+        Activity receivedActivity = (Activity) onLanguageSelectedListener;
+
+
+      //  Intent intent = receivedActivity.getIntent();
+        receivedActivity.finishAndRemoveTask();
+        receivedActivity.recreate();
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

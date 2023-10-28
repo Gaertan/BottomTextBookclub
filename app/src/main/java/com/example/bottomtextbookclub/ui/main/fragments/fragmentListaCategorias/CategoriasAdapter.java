@@ -1,26 +1,21 @@
 package com.example.bottomtextbookclub.ui.main.fragments.fragmentListaCategorias;
 
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.example.bottomtextbookclub.data.model.negocio.dominio.Categorias;
-
-
-import java.util.ArrayList;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.bottomtextbookclub.R;
+import com.example.bottomtextbookclub.data.model.negocio.dominio.Categorias;
+import java.util.ArrayList;
 
 public class CategoriasAdapter extends RecyclerView.Adapter<CategoriasAdapter.ViewHolder> {
-    Context context;
-    private OnCategoriaClickListener onCategoriaClickListener;
+    private Context context;
     private ArrayList<Categorias> categoriasList;
+    private OnCategoriaClickListener onCategoriaClickListener;
 
     public CategoriasAdapter(ArrayList<Categorias> categoriasList, OnCategoriaClickListener listener) {
         this.categoriasList = categoriasList;
@@ -32,49 +27,36 @@ public class CategoriasAdapter extends RecyclerView.Adapter<CategoriasAdapter.Vi
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
-
-        // Inflate the custom layout
         View categoriaView = inflater.inflate(R.layout.categoria_item, parent, false);
 
-        // Return a new holder instance
-
-        ViewHolder viewHolder = new ViewHolder(categoriaView,onCategoriaClickListener);
-        return viewHolder;
+        //categoriaView.setOnClickListener(new myOnClickListener());
+        return new ViewHolder(categoriaView);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Categorias categoria = categoriasList.get(position);
-
-
         holder.textNombreCategoria.setText(getNombreCategoria(categoria));
-
-
-        //String nombreImagen = categoria.getNombre() +".png";
-        //  int imageResource = context.getResources().getIdentifier(nombreImagen, "drawable", context.getPackageName());
-
         holder.imageViewCategoria.setImageResource(getImgCategoria(categoria));
-
-
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.out.println("se hizo click en CategoriasAdapter;onbindviewholder");
+                if (onCategoriaClickListener != null) {
+                    onCategoriaClickListener.onCategoriaClick(categoria);
+                }
+            }
+        });
     }
 
     private String getNombreCategoria(Categorias categoria) {
-        // Obtener el nombre de la categoría desde los recursos de strings
-        String nombreCategoria = context.getString(context.getResources().getIdentifier(categoria.toString(),
-                "string", context.getPackageName()));
+        String nombreCategoria = context.getString(context.getResources().getIdentifier(categoria.toString(), "string", context.getPackageName()));
         return nombreCategoria;
-
     }
 
     private int getImgCategoria(Categorias categoria) {
-        // Obtener el nombre de la categoría desde los recursos de strings
-        int imageResource = context.getResources().getIdentifier(categoria.getNombre(), "drawable",
-                context.getPackageName());
-        System.out.println("el img resource es " + imageResource);
-        //  Log.d("CategoriasAdapter", "Nombre de la imagen: " + nombreImagen);
-        //  Log.d("CategoriasAdapter", "ID de la imagen: " + imageResource);
+        int imageResource = context.getResources().getIdentifier(categoria.getNombre(), "drawable", context.getPackageName());
         return imageResource;
-
     }
 
     @Override
@@ -82,38 +64,28 @@ public class CategoriasAdapter extends RecyclerView.Adapter<CategoriasAdapter.Vi
         return categoriasList.size();
     }
 
-    //crear listener
     public interface OnCategoriaClickListener {
         void onCategoriaClick(Categorias categoria);
-    }
-    private OnCategoriaClickListener listener;
-    public void setOnItemClickListener(OnCategoriaClickListener listener) {
-        this.listener = listener;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public TextView textNombreCategoria;
         public ImageView imageViewCategoria;
-        private OnCategoriaClickListener listener;
 
-        public ViewHolder(View itemView ,OnCategoriaClickListener listener ) {
+        public ViewHolder(View itemView) {
             super(itemView);
-
             textNombreCategoria = itemView.findViewById(R.id.textNombreCategoria);
             imageViewCategoria = itemView.findViewById(R.id.imageViewCategoria);
 
-            onCategoriaClickListener = listener;
-            itemView.setOnClickListener(this);
+            itemView.setOnClickListener((View.OnClickListener) this);
+        }
 
-        }
-        @Override
-        public void onClick(View v) {
-            int position = getAdapterPosition();
-            if (position != RecyclerView.NO_POSITION) {
-                Categorias categoria = categoriasList.get(position);
-                onCategoriaClickListener.onCategoriaClick(categoria);
-            }
-        }
+      @Override
+        public void onClick(View view) {
+            System.out.println("se ha pulsado el viewholder");
+      }
+            int position = getLayoutPosition(); // gets item position
+
 
     }
 }

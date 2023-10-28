@@ -7,8 +7,8 @@
 
     <ImageView
         android:id="@+id/imgViewFlag"
-        android:layout_height="11px"
-        android:layout_width="16px"
+        android:layout_height="50px"
+        android:layout_width="50px"
         android:layout_margin="5dp" />
 
     <TextView
