@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import com.example.bottomtextbookclub.MyApplication;
 import com.example.bottomtextbookclub.utils.LocaleHelper;
 import com.example.bottomtextbookclub.MainActivity;
 import com.example.bottomtextbookclub.R;
@@ -19,6 +20,10 @@ public class AutenticacionActivity extends AppCompatActivity implements DialogFr
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        MyApplication myApplication = (MyApplication) this.getApplication();
+        myApplication.logoutUser();
+
         setContentView(R.layout.activity_autenticacion);
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
@@ -26,14 +31,10 @@ public class AutenticacionActivity extends AppCompatActivity implements DialogFr
                     .commit();
         }
     }
-    public static String getStringResourceByName(Context context, String name) {
-        int resId = context.getResources().getIdentifier(name, "string", context.getPackageName());
-        if (resId != 0) {
-            return context.getString(resId);
-        }
-        return "";
-    }
+
+
     //-------------------------------------------idioma
+
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(LocaleHelper.wrapContext(newBase));
@@ -54,6 +55,15 @@ public class AutenticacionActivity extends AppCompatActivity implements DialogFr
         recreate();
 
     }
+//--------------------------------------   utils
+    public static String getStringResourceByName(Context context, String name) {
+        int resId = context.getResources().getIdentifier(name, "string", context.getPackageName());
+        if (resId != 0) {
+            return context.getString(resId);
+        }
+        return "";
+    }
+
     private void registrar() {
         // Obtener el fragmento activo
         Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.container);
@@ -72,11 +82,15 @@ public class AutenticacionActivity extends AppCompatActivity implements DialogFr
                     .replace(R.id.container, LoginFragment.newInstance(nombreUsuario, password))
                     .commit();
 
-
-
-
         }
     }
+
+    protected void nuke(){
+        String stringNuke = (String)getString(R.string.nukeConfirmQuestion);
+
+        showConfirmationDialog(stringNuke);}
+
+    //------------------------------------------------ flujo
     @Override
     public void onBackPressed() {
         showConfirmationDialog();
@@ -91,10 +105,7 @@ public class AutenticacionActivity extends AppCompatActivity implements DialogFr
             getSupportFragmentManager().popBackStack();
 
         }}
-    protected void nuke(){
-        String stringNuke = (String)getString(R.string.nukeConfirmQuestion);
 
-        showConfirmationDialog(stringNuke);}
 
     protected void showConfirmationDialog(){
         DialogFragmentConfrirmar.newInstance(getString(R.string.previous))
@@ -115,12 +126,12 @@ public class AutenticacionActivity extends AppCompatActivity implements DialogFr
                     loginFragment.nuke();
             }
         }
-        String textoRegistrar = (String)getString(R.string.registrar_pregunta);
+
         if (result && getString(R.string.previous).equals(texto)) {
             volverOcerrar();
         }
-
-        else if (result && textoRegistrar.equals(texto)) {
+        String textoRegistrar = (String)getString(R.string.registrar_pregunta);
+         if (result && textoRegistrar.equals(texto)) {
             registrar();
         }
 

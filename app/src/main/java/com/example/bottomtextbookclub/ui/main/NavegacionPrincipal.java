@@ -104,7 +104,7 @@ public class NavegacionPrincipal extends AppCompatActivity implements  Categoria
         recreate();
 
     }
-    //-------------------------------------------flujo
+    //-------------------------------------------flujo y resultado dialogo confirmar
     @Override
     public void onResultDialogConfirmacion(boolean result, String texto) {
         if (result && getString(R.string.previous).equals(texto)) {

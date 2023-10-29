@@ -33,6 +33,7 @@ public class MyApplication extends Application implements DialogFragmentConfrirm
         Intent autenticadorServiceIntent = new Intent(this, AutenticadorService.class);
         startService(autenticadorServiceIntent);
     }
+
     public void init(String username){
         Libros libros = getInstancia();
         libros.init();
@@ -86,31 +87,21 @@ public class MyApplication extends Application implements DialogFragmentConfrirm
 
     }
 
-    public void promptRestart(DialogFragmentLang.OnLanguageSelectedListener onLanguageSelectedListener){
-        System.out.println("se entra en promptrestart de MyApplication");
-        Activity receivedActivity = (Activity) onLanguageSelectedListener;
-
-
-      //  Intent intent = receivedActivity.getIntent();
-        receivedActivity.finishAndRemoveTask();
-        receivedActivity.recreate();
-
-
-    }
-
-
-
-
     public static void init(){
         //asegurarse de que se no es nulo
+        //realmente usariamos el metodo que requiere usuario lanzando excepcion si nulo
         Libros libros =getInstancia();
 
         Libro libro1 = new Libro("9788493806125", Categorias.ACCION, "El quijote", "El quijote  asdoimqweormoim qwoiemrioqmrewfewfewgtwrswtgwetfesdgfewfewt32twe li3rnu li32 rnnt43i2l niewfn lies fnlisdfnj slgk o3it ñowmfosdimfoidsmf ew");
-        Libro libro2 = new Libro("9788493806126", Categorias.ACCION, "El quijote", "El quijote  asdoimqweormoim qwoiemrioqmr");
+        Libro libro2 = new Libro("9788469640401", Categorias.ACCION, "Eisenhorn", "qweflqiwunfñaiunsdoinsaoisdaonisanioddnosainodsaioiwqonifioqñenfñoainsoñndksfñaodsinfañskdnsañodinqwñodinañorniaeñorinasdñonawoind");
+        Libro libro3 = new Libro("9788445004289", Categorias.ACCION, "Asterix el utlimo libro", "ryrsysefdqwaeqewtweasdqwaraflqiwunfñaiunsdoinsaoisdaonisanioddnosainodsaioiwqonifioqñenfñoainsoñndksfñaodsinfañskdnsañodinqwñodinañorniaeñorinasdñonawoind");
 
+        libro1.setCategoria(Categorias.DEFAULT);
+        libro2.setCategoria(Categorias.DEFAULT);
+        libro3.setCategoria(Categorias.DEFAULT);
         libros.addLibro(libro1);
         libros.addLibro(libro2);
-
+        libros.addLibro(libro3);
 
 
 

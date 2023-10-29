@@ -28,12 +28,15 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="registrar_pregunta">"register with these credentials?"</string>
-    <string name="login_failed">"Login failed"</string>
+    <string name="login_failed">"Login failed;check your credentials"</string>
     <string name="title_activity_main2">MainActivity2</string>
     <string name="menu_ayuda">"Help"</string>
     <string name="menu_acerca_de">"About"</string>
     <string name="menu_historial">"Record/recent watched"</string>
     <string name="comprar">"buy"</string>
+
+
+    <string name="loginRequired">login is required for this operation</string>
 
     <string name="restartMayBeRequired">Changes applied, you may need to restart</string>
     <string name="restartQuestion">restart?</string>
@@ -44,7 +47,8 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
     <string name="confirmQuestion">Are you sure?</string>
-    <string name="nukeConfirmQuestion">Are you sure you want to delete all?</string>
+    <string name="nukeConfirmQuestion">Are you sure you want to delete all users?</string>
+    <string name="nukeConfirm">All users have been deleted</string>
     <string name="confirm">Confirm</string>
     <string name="cancel">Cancel</string>
     <string name="lorem_ipsum">

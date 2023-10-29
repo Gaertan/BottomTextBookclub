@@ -15,9 +15,11 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.bottomtextbookclub.MyApplication;
 import com.example.bottomtextbookclub.R;
 import com.example.bottomtextbookclub.data.model.negocio.dominio.UsuariosAccount;
 import com.example.bottomtextbookclub.ui.main.NavegacionPrincipal;
@@ -33,6 +35,7 @@ public class LoginFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         View view = inflater.inflate(R.layout.fragment_login, container, false);
 
         editTextUsuario = view.findViewById(R.id.loginUsuarioFragmentlogin);
@@ -93,7 +96,7 @@ public class LoginFragment extends Fragment {
 
 
 
-        TransitionInflater transInflater = TransitionInflater.from(requireContext());
+       // TransitionInflater transInflater = TransitionInflater.from(requireContext());
 
 
 
@@ -101,6 +104,7 @@ public class LoginFragment extends Fragment {
     }
 
 
+    @NonNull
     public static LoginFragment newInstance(String nombreUsuario, String password) {
         //empaqueta los campos para el viewcreated
         LoginFragment fragment = new LoginFragment();
@@ -166,11 +170,15 @@ public class LoginFragment extends Fragment {
                 // Intent intent = new Intent(this, pantallaPrincipal.class);
                 Intent intent = new Intent(getContext(), NavegacionPrincipal.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+                MyApplication myApplication = (MyApplication) requireActivity().getApplication();
+                myApplication.loginUser(nombreUsuario);
+
                 startActivity(intent);
 
 
             } else {
-                Toast.makeText(getContext(), "Credenciales incorrectas", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getString(R.string.login_failed), Toast.LENGTH_LONG).show();
             }
         }
         catch (Exception e) {
@@ -234,7 +242,7 @@ public class LoginFragment extends Fragment {
 
         try {
             UsuariosAccount.tabulaRasa(accountManager);
-            Toast.makeText(getActivity(), "todos los usuarios han sido eliminados", Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(), getString(R.string.nukeConfirm), Toast.LENGTH_LONG).show();
         }
         catch (Exception e) {
             Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_LONG).show();

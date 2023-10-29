@@ -32,10 +32,6 @@ public class DialogFragmentConfrirmar extends DialogFragment {
         // Required empty public constructor
     }
 
-
-
-
-
     // TODO: Rename and change types and number of parameters
     public static DialogFragmentConfrirmar newInstance(String textoAMostrar) {
         DialogFragmentConfrirmar fragment = new DialogFragmentConfrirmar();

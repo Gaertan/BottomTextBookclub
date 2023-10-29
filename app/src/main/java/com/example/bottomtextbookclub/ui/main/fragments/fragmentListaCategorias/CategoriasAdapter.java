@@ -60,20 +60,30 @@ public class CategoriasAdapter extends RecyclerView.Adapter<CategoriasAdapter.Vi
 
     private String getNombreCategoria(Categorias categoria) {
         // Obtener el nombre de la categoría desde los recursos de strings
-        String nombreCategoria = context.getString(context.getResources().getIdentifier(categoria.toString(),
-                "string", context.getPackageName()));
-        return nombreCategoria;
 
+        try{
+            String nombreCategoria = context.getString(context.getResources().getIdentifier(categoria.toString(),
+                "string", context.getPackageName()));
+            return nombreCategoria;}catch(Exception e){
+
+            return context.getString(context.getResources().getIdentifier("@string/defaultCategory",
+                    "string", context.getPackageName()));}
     }
 
     private int getImgCategoria(Categorias categoria) {
         // Obtener el nombre de la categoría desde los recursos de strings
-        int imageResource = context.getResources().getIdentifier(categoria.getNombre(), "drawable",
-                context.getPackageName());
-        System.out.println("el img resource es " + imageResource);
-        //  Log.d("CategoriasAdapter", "Nombre de la imagen: " + nombreImagen);
-        //  Log.d("CategoriasAdapter", "ID de la imagen: " + imageResource);
-        return imageResource;
+
+
+        try{
+            int imageResource = context.getResources().getIdentifier(categoria.getNombre(), "drawable",
+                    context.getPackageName());
+            System.out.println("el img resource es " + imageResource);
+            //  Log.d("CategoriasAdapter", "Nombre de la imagen: " + nombreImagen);
+            //  Log.d("CategoriasAdapter", "ID de la imagen: " + imageResource);
+            return imageResource;
+           }catch(Exception e){return
+            context.getResources().getIdentifier("comerciales", "drawable",
+                    context.getPackageName());}
 
     }
 
@@ -86,15 +96,11 @@ public class CategoriasAdapter extends RecyclerView.Adapter<CategoriasAdapter.Vi
     public interface OnCategoriaClickListener {
         void onCategoriaClick(Categorias categoria);
     }
-    private OnCategoriaClickListener listener;
-    public void setOnItemClickListener(OnCategoriaClickListener listener) {
-        this.listener = listener;
-    }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public TextView textNombreCategoria;
         public ImageView imageViewCategoria;
-        private OnCategoriaClickListener listener;
+       // private OnCategoriaClickListener listener;
 
         public ViewHolder(View itemView ,OnCategoriaClickListener listener ) {
             super(itemView);

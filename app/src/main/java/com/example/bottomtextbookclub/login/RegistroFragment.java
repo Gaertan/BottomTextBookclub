@@ -184,9 +184,9 @@ public class RegistroFragment extends Fragment implements DialogFragmentConfrirm
 
 
     public void onResultDialogConfirmacion(boolean resultado, String text) {
-        Log.d("RegistroFragment", "Texto Registrar: " + getString(R.string.registrar_pregunta));
+       // Log.d("RegistroFragment", "Texto Registrar: " + getString(R.string.registrar_pregunta));
         String textoRegistrar = (String)getString(R.string.registrar_pregunta);
-        Log.d("RegistroFragment", "Resultado: " + resultado + ", Texto: " + text);
+        //Log.d("RegistroFragment", "Resultado: " + resultado + ", Texto: " + text);
         if (resultado && getString(R.string.previous).equals(text)) {
             volverOcerrar();
         }

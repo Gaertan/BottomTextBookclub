@@ -20,7 +20,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Animation animSplash;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
+        MyApplication myApplication = (MyApplication) this.getApplication();
+        myApplication.logoutUser();
         try {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main);

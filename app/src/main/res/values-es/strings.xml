@@ -30,7 +30,7 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="registrar_pregunta">"¿Registrar con estas credenciales?"</string>
 
-    <string name="login_failed">"Login failed"</string>
+    <string name="login_failed">"Fallo de login;compruebe credenciales"</string>
     <string name="title_activity_main2">MainActivity2</string>
     <string name="menu_ayuda">"Ayuda"</string>
     <string name="menu_acerca_de">"Acerca de"</string>
@@ -50,9 +50,12 @@
     <string name="previous">Volver</string>
     <string name="confirmQuestion">¿Desea Continuar?</string>
     <string name="nukeConfirmQuestion">¿Seguro que deseas borrar todas las cuentas?</string>
+    <string name="nukeConfirm">Se han borrado todos los usuarios</string>
+
     <string name="lang">lenguaje</string>
     <string name="confirm">Confirmar</string>
     <string name="cancel">Cancelar</string>
+    <string name="loginRequired">se requiere un login para esta operación</string>
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
         volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus

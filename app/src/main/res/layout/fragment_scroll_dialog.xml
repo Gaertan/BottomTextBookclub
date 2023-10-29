@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/edit_name"
 
     android:layout_width="match_parent"
@@ -30,19 +31,13 @@
         android:text="@string/previous"
         android:visibility="visible" />
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="2dp" />
-
     <ImageView
         android:id="@+id/imageViewScrollDialog"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:maxHeight="10dp" />
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="10dp" />
+        android:maxHeight="10dp"
+        android:visibility="gone"
+        tools:visibility="visible" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
