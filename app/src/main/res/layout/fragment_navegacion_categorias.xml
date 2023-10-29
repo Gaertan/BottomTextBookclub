@@ -2,13 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/navegacion_principalRecyclerViewCategorias"
+    android:id="@+id/navegacion_principal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:clickable="true"
     android:clipChildren="false"
-    android:contextClickable="true"
-    android:longClickable="true"
+
     tools:context=".ui.main.fragments.fragmentListaCategorias.NavegacionPrincipalFragmentCategorias">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -18,22 +16,20 @@
         android:clickable="true"
         android:clipChildren="true"
         android:clipToPadding="true"
-        android:contextClickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
+
+
         app:layout_constraintEnd_toEndOf="parent"
-
-
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayoutNavegacionCategorias"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         tools:listitem="@android:layout/activity_list_item" />
 
     <LinearLayout
-        android:id="@+id/linearLayoutNavegacionCategorias"
-        android:layout_width="0dp"
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:animateLayoutChanges="true"
-        android:clickable="true"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/recyclerViewCategorias"
         app:layout_constraintEnd_toEndOf="parent"

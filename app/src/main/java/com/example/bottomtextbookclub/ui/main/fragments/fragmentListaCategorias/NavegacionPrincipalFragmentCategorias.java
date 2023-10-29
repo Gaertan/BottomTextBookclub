@@ -22,7 +22,7 @@ import java.util.Arrays;
 
 
 public class NavegacionPrincipalFragmentCategorias extends Fragment implements CategoriasAdapter.OnCategoriaClickListener  {
-
+    CategoriasAdapter adapter;
     // Otras variables miembro
 
     public static NavegacionPrincipalFragmentCategorias newInstance() {
@@ -45,6 +45,7 @@ public class NavegacionPrincipalFragmentCategorias extends Fragment implements C
 
         ArrayList<Categorias> categoriasList = new ArrayList<>(Arrays.asList(Categorias.values()));
         CategoriasAdapter adapter = new CategoriasAdapter(categoriasList,this);
+        this.adapter=adapter;
 
         recyclerView.setAdapter(adapter);
 
@@ -63,5 +64,9 @@ public class NavegacionPrincipalFragmentCategorias extends Fragment implements C
 
 
 
+    public void onResume() {
 
+        super.onResume();
+        adapter.notifyDataSetChanged();
+    }
 }

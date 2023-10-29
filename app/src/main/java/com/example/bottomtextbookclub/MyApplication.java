@@ -1,5 +1,7 @@
 package com.example.bottomtextbookclub;
 
+import static com.example.bottomtextbookclub.data.model.negocio.Libros.getInstancia;
+
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
@@ -7,6 +9,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.widget.Toast;
 
+import com.example.bottomtextbookclub.data.model.negocio.dominio.Categorias;
+import com.example.bottomtextbookclub.data.model.negocio.dominio.Libro;
 import com.example.bottomtextbookclub.utils.AutenticadorService;
 import com.example.bottomtextbookclub.utils.LocaleHelper;
 import com.example.bottomtextbookclub.R;
@@ -30,7 +34,7 @@ public class MyApplication extends Application implements DialogFragmentConfrirm
         startService(autenticadorServiceIntent);
     }
     public void init(String username){
-        Libros libros = Libros.getInstancia();
+        Libros libros = getInstancia();
         libros.init();
 
         loginUser(username);
@@ -41,6 +45,7 @@ public class MyApplication extends Application implements DialogFragmentConfrirm
 //-------------------------------------------- usuario
 
     public boolean isUserLoggedIn() {
+        if(loggedInUsername==null||loggedInUsername=="")return false;
         return isUserLoggedIn;
     }
 
@@ -96,7 +101,20 @@ public class MyApplication extends Application implements DialogFragmentConfrirm
 
 
 
+    public static void init(){
+        //asegurarse de que se no es nulo
+        Libros libros =getInstancia();
 
+        Libro libro1 = new Libro("9788493806125", Categorias.ACCION, "El quijote", "El quijote  asdoimqweormoim qwoiemrioqmrewfewfewgtwrswtgwetfesdgfewfewt32twe li3rnu li32 rnnt43i2l niewfn lies fnlisdfnj slgk o3it ñowmfosdimfoidsmf ew");
+        Libro libro2 = new Libro("9788493806126", Categorias.ACCION, "El quijote", "El quijote  asdoimqweormoim qwoiemrioqmr");
+
+        libros.addLibro(libro1);
+        libros.addLibro(libro2);
+
+
+
+
+    }
 
 
 

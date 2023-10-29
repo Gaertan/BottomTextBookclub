@@ -19,7 +19,7 @@ import android.widget.Toast;
 
 import com.example.bottomtextbookclub.R;
 import com.example.bottomtextbookclub.data.model.negocio.dominio.Categorias;
-import com.example.bottomtextbookclub.data.model.negocio.dominio.UsuarioAccount;
+import com.example.bottomtextbookclub.data.model.negocio.dominio.UsuariosAccount;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -151,9 +151,9 @@ public class RegistroFragment extends Fragment implements DialogFragmentConfrirm
         try {
             AccountManager accountManager = AccountManager.get(requireContext());
             System.out.println(nombreUsuario);
-            UsuarioAccount.guardarCuentaCredenciales(accountManager, nombreUsuario, password);
-            UsuarioAccount.setCategoriaFavorita(accountManager, nombreUsuario, spinnerCategoria.getSelectedItem().toString());
-            if (UsuarioAccount.validarCredenciales(accountManager, nombreUsuario, password)) {
+            UsuariosAccount.guardarCuentaCredenciales(accountManager, nombreUsuario, password);
+            UsuariosAccount.setCategoriaFavorita(accountManager, nombreUsuario, spinnerCategoria.getSelectedItem().toString());
+            if (UsuariosAccount.validarCredenciales(accountManager, nombreUsuario, password)) {
                 Toast.makeText(getContext(), "Registro exitoso; el usuario se encuentra", Toast.LENGTH_LONG).show();
                 devolverDatosLogin( nombreUsuario,password);
 

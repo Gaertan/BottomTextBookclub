@@ -5,10 +5,10 @@ import android.accounts.AccountManager;
 
 import java.io.Serializable;
 
-public class UsuarioAccount implements Serializable {
+public class UsuariosAccount implements Serializable {
 
     public static final String ACCOUNT_TYPE = "com.example.bottomtextbookclub.data.model";
-    public static final String ACCOUNT_NAME = "BottomTextBookClub";
+   // public static final String ACCOUNT_NAME = "BottomTextBookClub";
 
     public static Account crearCuenta(String nombreUsuario, String password) {
         return new Account(nombreUsuario, ACCOUNT_TYPE);
@@ -41,6 +41,7 @@ public class UsuarioAccount implements Serializable {
     }
 
     public static String getCategoriaFavorita(AccountManager accountManager, String nombreUsuario) {
+        //por implementar uso
         Account[] accounts = accountManager.getAccountsByType(ACCOUNT_TYPE);
         for (Account account : accounts) {
             if (account.name.equals(nombreUsuario)) {

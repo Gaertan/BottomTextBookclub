@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.bottomtextbookclub.MyApplication;
 import com.example.bottomtextbookclub.utils.LocaleHelper;
 import com.example.bottomtextbookclub.R;
 import com.example.bottomtextbookclub.data.model.negocio.Libros;
@@ -40,8 +41,7 @@ public class NavegacionPrincipal extends AppCompatActivity implements  Categoria
     protected void onCreate(Bundle savedInstanceState) {
 
 
-        Libros libros = Libros.getInstancia();
-        libros.init();
+        MyApplication.init();
 
 
         super.onCreate(savedInstanceState);
@@ -129,14 +129,7 @@ public class NavegacionPrincipal extends AppCompatActivity implements  Categoria
     }}
 
 
-    class MyOnClickListener implements View.OnClickListener {
-        @Override
-        public void onClick(View v) {
-            RecyclerView recyclerView = (RecyclerView) v.findViewById(R.id.recyclerViewCategorias);
-            int itemPosition = recyclerView.indexOfChild(v);
-            Log.e("Clicked and Position is ",String.valueOf(itemPosition));
-        }
-    }
+
 
 
 
@@ -158,14 +151,14 @@ public class NavegacionPrincipal extends AppCompatActivity implements  Categoria
         int id = item.getItemId();
         if(id ==  R.id.menu_acerca_de){
             showScrollDialogAbout();
-            Toast.makeText(this,
+         /*   Toast.makeText(this,
                     "Has pulsado la opción acerca_de", Toast.LENGTH_SHORT).show();
-
+*/
             return true;
         }
         if(id ==  R.id.menu_ayuda){
-            Toast.makeText(this,
-                    "Has pulsado la opción ayuda", Toast.LENGTH_SHORT).show();
+          /*     Toast.makeText(this,
+                 "Has pulsado la opción ayuda", Toast.LENGTH_SHORT).show();*/
             showScrollDialogAyuda();
 
             return true;
@@ -173,7 +166,7 @@ public class NavegacionPrincipal extends AppCompatActivity implements  Categoria
 
         else if(id ==  R.id.menu_historial){
             Toast.makeText(this,
-                    "Has pulsado la opción historial", Toast.LENGTH_SHORT).show();
+                    "Has pulsado la opción historial(por traducir e implementar)", Toast.LENGTH_SHORT).show();
             showDialogHistorial();
             return true;
         }
@@ -209,7 +202,7 @@ public class NavegacionPrincipal extends AppCompatActivity implements  Categoria
     @Override
     public void onLibroClick(Libro libro) {
         DetailsLibroFragment detailsLibroFragment = DetailsLibroFragment.newInstance(libro);
-        System.out.println("cambiar fragmento a libro" );
+       // System.out.println("cambiar fragmento a libro" );
         cambiarFragmento(detailsLibroFragment);
     }
 

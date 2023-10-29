@@ -84,7 +84,8 @@ public class LibroFragment extends Fragment implements LibroRecyclerViewAdapter.
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
             adapter = new LibroRecyclerViewAdapter(listaLibros);
-            adapter.setOnItemClickListener((LibroRecyclerViewAdapter.OnItemClickListener) this); // Establecer el listener
+            adapter.setOnItemClickListener((LibroRecyclerViewAdapter.OnItemClickListener) this);
+            this.adapter=adapter;// Establecer el listener
             recyclerView.setAdapter(adapter);
         }
         return view;
@@ -107,5 +108,12 @@ public class LibroFragment extends Fragment implements LibroRecyclerViewAdapter.
         if (getActivity() instanceof NavegacionPrincipal) {
             ((NavegacionPrincipal) getActivity()).cambiarFragmento(DetailsLibroFragment.newInstance(libro));
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        adapter.notifyDataSetChanged();
+
     }
 }

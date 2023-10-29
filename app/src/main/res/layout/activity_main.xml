@@ -13,13 +13,19 @@
         android:layout_width="151dp"
         android:layout_height="163dp"
         android:layout_marginBottom="29dp"
+        android:adjustViewBounds="false"
+        android:background="@drawable/gradient_book"
+        android:cropToPadding="false"
+        android:scaleType="fitCenter"
         android:src="@mipmap/main_foreground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.196"
-        tools:srcCompat="@mipmap/main_foreground" />
+        tools:srcCompat="@mipmap/main_foreground"
+
+        />
 
     <TextView
         android:id="@+id/textProgramacion"

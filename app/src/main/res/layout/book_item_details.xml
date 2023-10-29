@@ -10,6 +10,7 @@
         android:id="@+id/scrollView4"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="@drawable/gradient_book"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,6 +20,7 @@
             android:id="@+id/linearLayoutDetailsLibro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/gradient_book"
             android:gravity="center|center_horizontal|center_vertical"
             android:orientation="vertical">
 
@@ -28,7 +30,11 @@
                 android:layout_height="wrap_content"
                 android:foregroundGravity="center_vertical|center|center_horizontal"
                 android:text="placeholder"
-                android:textAppearance="?attr/textAppearanceListItem" />
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:background="@drawable/gradient_book"
+                android:textAllCaps="true"
+
+                />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -59,15 +65,21 @@
                 android:layout_marginTop="20dp"
                 android:foregroundGravity="center_vertical|center|center_horizontal"
                 android:text="placeholder"
+                android:textAllCaps="true"
                 android:textAppearance="?attr/textAppearanceListItem" />
 
-            <TextView
-                android:id="@+id/textViewDescripcionLibroDetails"
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="56dp"
-                android:gravity="center|center_horizontal|center_vertical"
-                android:text="placeholder" />
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:id="@+id/textViewDescripcionLibroDetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="56dp"
+                    android:gravity="center|center_horizontal|center_vertical"
+                    android:text="placeholder" />
+            </ScrollView>
 
             <Button
                 android:id="@+id/ButtonComprarLibroDetails"

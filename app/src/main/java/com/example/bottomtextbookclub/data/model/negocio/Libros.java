@@ -56,8 +56,11 @@ public class Libros implements Serializable {
         //asegurarse de que se no es nulo
     Libros libros =getInstancia();
 
-    Libro libro1 = new Libro("9788493806125", Categorias.ACCION, "El quijote", "El quijote  asdoimqweormoim qwoiemrioqmr");
-    libros.addLibro(libro1);
+    Libro libro1 = new Libro("9788493806125", Categorias.ACCION, "El quijote", "El quijote  asdoimqweormoim qwoiemrioqmrewfewfewgtwrswtgwetfesdgfewfewt32twe li3rnu li32 rnnt43i2l niewfn lies fnlisdfnj slgk o3it ñowmfosdimfoidsmf ew");
+    Libro libro2 = new Libro("9788493806126", Categorias.ACCION, "El quijote", "El quijote  asdoimqweormoim qwoiemrioqmr");
+
+        libros.addLibro(libro1);
+        libros.addLibro(libro2);
 
 
 

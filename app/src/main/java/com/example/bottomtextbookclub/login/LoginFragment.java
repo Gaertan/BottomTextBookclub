@@ -19,7 +19,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.bottomtextbookclub.R;
-import com.example.bottomtextbookclub.data.model.negocio.dominio.UsuarioAccount;
+import com.example.bottomtextbookclub.data.model.negocio.dominio.UsuariosAccount;
 import com.example.bottomtextbookclub.ui.main.NavegacionPrincipal;
 
 public class LoginFragment extends Fragment {
@@ -156,7 +156,7 @@ public class LoginFragment extends Fragment {
 
             AccountManager accountManager = AccountManager.get(getContext());
 
-            if (UsuarioAccount.validarCredenciales(accountManager, nombreUsuario, password)) {
+            if (UsuariosAccount.validarCredenciales(accountManager, nombreUsuario, password)) {
                 if (checkBoxRecordar.isChecked()) {
                     guardarCredenciales(nombreUsuario, password);
                 }
@@ -233,7 +233,7 @@ public class LoginFragment extends Fragment {
         AccountManager accountManager = AccountManager.get(getActivity());
 
         try {
-            UsuarioAccount.tabulaRasa(accountManager);
+            UsuariosAccount.tabulaRasa(accountManager);
             Toast.makeText(getActivity(), "todos los usuarios han sido eliminados", Toast.LENGTH_LONG).show();
         }
         catch (Exception e) {

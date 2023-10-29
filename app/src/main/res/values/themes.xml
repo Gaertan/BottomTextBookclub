@@ -4,14 +4,14 @@
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
 
-        <item name="android:windowEnterTransition">@transition/slide_left</item>
+        <item name="android:windowEnterTransition">@transition/slide_right</item>
 
 
     </style>
 
     <style name="Theme.BottomTextBookclub" parent="Base.Theme.BottomTextBookclub">
 
-    <item name="android:windowEnterTransition">@transition/slide_left</item>
+    <item name="android:windowEnterTransition">@transition/slide_right</item>
         <item name="colorPrimary">@color/md_theme_light_primary</item>
         <item name="colorOnPrimary">@color/md_theme_light_onPrimary</item>
         <item name="colorPrimaryContainer">@color/md_theme_light_primaryContainer</item>

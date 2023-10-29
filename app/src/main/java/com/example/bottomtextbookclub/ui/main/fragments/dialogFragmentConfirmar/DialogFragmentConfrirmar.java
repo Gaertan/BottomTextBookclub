@@ -126,6 +126,7 @@ public class DialogFragmentConfrirmar extends DialogFragment {
  //IMPLEMENTAR EN CLASE ESCUCHADORA;LA QUE LLAMA
 
 // En método donde mostrar el diálogo de confirmación
+//llamar en evento de onclick,onfocus,ontextchange(puedes cambiar nombre metodo)...
 private void onConfirmacionClick() {
     mostrarDialogoConfirmacion(getString(R.string.confirm_message));
 }
@@ -148,7 +149,7 @@ public void onResultDialogConfirmacion(boolean resultado) {
         // (opcional)
     }
 }
-//IMPLEMENTACION OPCIONAL PARA VARIOS METODOS DE UNA MSMA ACTIVITY O METODO
+//IMPLEMENTACION OPCIONAL PARA VARIOS METODOS DE UNA MISMA ACTIVITY O METODO
     @Override
     public void onResultDialogConfirmacion(Boolean result,String texto) {
             ...
@@ -159,7 +160,7 @@ public void onResultDialogConfirmacion(boolean resultado) {
 
 ------------------------------------------
 
-posible metodo para volver o cerrar ventanas
+posible metodo para volver o cerrar ventanas(no directamente relacionado con este dialogo)
 
     private void volverOcerrar(){
         if (getSupportFragmentManager().getBackStackEntryCount() == 0) {

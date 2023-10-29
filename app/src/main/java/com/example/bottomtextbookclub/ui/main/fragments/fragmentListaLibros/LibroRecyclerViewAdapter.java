@@ -63,7 +63,9 @@ public class LibroRecyclerViewAdapter extends RecyclerView.Adapter<LibroRecycler
 
     @Override
     public int getItemCount() {
-        return listaLibros.size();
+        if(listaLibros!=null)return listaLibros.size();
+        else return 0;
+
     }
 
 
